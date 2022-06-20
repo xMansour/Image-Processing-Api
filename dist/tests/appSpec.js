@@ -27,3 +27,9 @@ describe('GET /resize', () => {
         expect(response.status).toBe(200);
     }));
 });
+describe('GET /listimages', () => {
+    it('Testing the listing functionality', () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield request.get('/listimages');
+        expect(response.status).toBe(200);
+    }));
+});

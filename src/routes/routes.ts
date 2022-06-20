@@ -1,9 +1,11 @@
 import express from 'express';
 import resize from './api/resize';
-//
+import listImages from './api/listImages';
+
 const routes = express.Router();
 
 routes.use('/resize', resize);
+routes.use('/listimages', listImages);
 routes.use(express.static(`${process.cwd()}/public/`));
 
 routes.get('/', (req, res) => {

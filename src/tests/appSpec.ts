@@ -18,3 +18,10 @@ describe('GET /resize', () => {
     expect(response.status).toBe(200);
   });
 });
+
+describe('GET /listimages', () => {
+  it('Testing the listing functionality', async () => {
+    const response = await request.get('/listimages');
+    expect(response.status).toBe(200);
+  });
+});
