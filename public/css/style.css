@@ -1,24 +1,38 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+:root {
     font-size: 18px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before *::after {
+    box-sizing: border-box;
 }
 
 body {
     background-color: white;
+    width: 100%;
+    height: 100%;
 }
 
 main {
     margin: 1rem 2rem;
-
-}
-header{
-    width: 100%;
 }
 
-span{
+h1,h3{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+ul{
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+span {
     color: rgb(150, 147, 147);
 }
 
@@ -35,17 +49,24 @@ form {
 }
 
 
-input[type="number"], select, #btnResize{
-    width: 40%;
-    margin: 0.5rem;
-
+input[type="number"],
+select,
+#btnResize {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem;
 }
-h1{
+
+h1 {
     font-weight: 700;
 }
-h3,p,strong{
+
+h3,
+p,
+strong {
     font-weight: 400;
 }
+
 footer {
     position: fixed;
     bottom: 0;
