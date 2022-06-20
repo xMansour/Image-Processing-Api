@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Image Processing Api</title>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <header>
+            <h1>Image Processing Api Usage</h1>
+            <hr>
+        </header>
+        <main>
+            <div>
+                <h3>
+                    Manualy enter your query parameters as following:
+                </h3>
+                <ul>
+                    <li>
+                        <p>imageName<span>: Should be equal to one of the three images found in the assets/full
+                                folder ex.RobinSharma-3840x2160.jpg</span></p>
+                    </li>
+                    <li>
+                        <p>width<span>: The width of the resized image ex.width=400</span></p>
+                    </li>
+                    <li>
+                        <p>height<span>: The height of the resized image ex.height=200</span></p>
+                    </li>
+                    <li>
+                        <p>The full url<span>: Should be something like this
+                                http://127.0.0.1:3000/resize?imageName=RobinSharma-3840x2160.jpg&width=600&height=400</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <hr>
+            <div>
+                <h3>
+                    Or use the form below to generate the url:
+                </h3>
+                <form action="/resize" method="get">
+                    <select name="imageName" id="">
+                        <option value="JimRohn-3840x2160.jpg">JimRohn-3840x2160.jpg</option>
+                        <option value="RobinSharma-3840x2160.jpg">RobinSharma-3840x2160.jpg</option>
+                        <option value="TonyGaskins-3840x2160.jpg">TonyGaskins-3840x2160.jpg</option>
+                    </select>
+                    <input type="number" name="width" placeholder="width" id="" required>
+                    <input type="number" name="height" placeholder="height" id="" required>
+                    <input type="submit" value="Resize" id="btnResize">
+                </form>
+            </div>
+
+        </main>
+        
+    </div>
+    <footer>
+        <p>Created with ❤️ by <a href="https://github.com/xMansour">Mahmoud Mansour</a></p>
+    </footer>
+</body>
+</html>

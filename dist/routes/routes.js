@@ -5,10 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const resize_1 = __importDefault(require("./api/resize"));
+//
 const routes = express_1.default.Router();
-routes.get("/", (req, res) => {
-    res.send("Main route");
-    console.log("Log:: Main route");
+routes.use('/resize', resize_1.default);
+routes.use(express_1.default.static(`${process.cwd()}/public/`));
+routes.get('/', (req, res) => {
+    console.log('Log:: Main route');
+    const indexFilePath = `${process.cwd()}/public/index.html`;
+    res.sendFile(indexFilePath);
 });
-routes.use("/resize", resize_1.default);
 exports.default = routes;

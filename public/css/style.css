@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    margin: 1rem 2rem;
+
+}
+header{
+    width: 100%;
+}
+
+span{
+    color: rgb(150, 147, 147);
+}
+
+hr {
+    margin-top: 1rem;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+input[type="number"], select, #btnResize{
+    width: 40%;
+    margin: 0.5rem;
+
+}
+h1{
+    font-weight: 700;
+}
+h3,p,strong{
+    font-weight: 400;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding-top: 0.2rem;
+}
