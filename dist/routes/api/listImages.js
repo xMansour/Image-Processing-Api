@@ -10,7 +10,7 @@ const listImages = express_1.default.Router();
 let rawData = [];
 listImages.use((req, res, next) => {
     rawData = [];
-    fs_1.default.readdir(path_1.default.join(process.cwd(), path_1.default.join("assets", "full")), (error, files) => {
+    fs_1.default.readdir(path_1.default.join(process.cwd(), path_1.default.join('assets', 'full')), (error, files) => {
         files.forEach((file) => {
             rawData.push(file);
         });

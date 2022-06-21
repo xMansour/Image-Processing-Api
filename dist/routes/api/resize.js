@@ -18,12 +18,12 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const resize = express_1.default.Router();
 const resizeImage = (name, ext, width, height) => __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, sharp_1.default)(path_1.default.join(process.cwd(), path_1.default.join("assets", "full", `${name}`)))
+    yield (0, sharp_1.default)(path_1.default.join(process.cwd(), path_1.default.join('assets', 'full', `${name}`)))
         .resize({
         width: width,
         height: height
     })
-        .toFile(path_1.default.resolve(path_1.default.join(process.cwd(), path_1.default.join("assets", "thumb", `${name.slice(0, name.indexOf('-'))}-${width}x${height}${ext}`))))
+        .toFile(path_1.default.join(process.cwd(), path_1.default.join('assets', 'thumb', `${name.slice(0, name.indexOf('-'))}-${width}x${height}${ext}`)))
         .then((info) => {
         console.log('Success: ' + info);
     })
@@ -36,7 +36,7 @@ resize.use((req, res, next) => {
     req.width = Number(req.query.width);
     req.height = Number(req.query.height);
     req.ext = path_1.default.extname(String(req.query.imageName));
-    req.outputPath = path_1.default.resolve(path_1.default.join(process.cwd(), path_1.default.join("assets", "thumb", `${req.name.slice(0, req.name.indexOf('-'))}-${req.width}x${req.height}${req.ext}`)));
+    req.outputPath = path_1.default.join(process.cwd(), path_1.default.join('assets', 'thumb', `${req.name.slice(0, req.name.indexOf('-'))}-${req.width}x${req.height}${req.ext}`));
     next();
 });
 resize.use((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

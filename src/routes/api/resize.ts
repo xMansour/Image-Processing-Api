@@ -24,7 +24,6 @@ const resizeImage = async (
           `${name.slice(0, name.indexOf('-'))}-${width}x${height}${ext}`
         )
       )
-
     )
     .then((info) => {
       console.log('Success: ' + info);
@@ -39,17 +38,16 @@ resize.use((req: express.Request, res: express.Response, next): void => {
   req.width = Number(req.query.width);
   req.height = Number(req.query.height);
   req.ext = path.extname(String(req.query.imageName));
-  req.outputPath =
+  req.outputPath = path.join(
+    process.cwd(),
     path.join(
-      process.cwd(),
-      path.join(
-        'assets',
-        'thumb',
-        `${req.name.slice(0, req.name.indexOf('-'))}-${req.width}x${req.height
-        }${req.ext}`
-      )
-
-    );
+      'assets',
+      'thumb',
+      `${req.name.slice(0, req.name.indexOf('-'))}-${req.width}x${req.height}${
+        req.ext
+      }`
+    )
+  );
   next();
 });
 
