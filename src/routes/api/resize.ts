@@ -32,7 +32,6 @@ const resizeImage = async (
       console.log('Error: ' + err);
     });
 };
-const validate = (req: express.Request, res: express.Response): void => {};
 resize.use((req: express.Request, res: express.Response, next): void => {
   req.name = String(req.query.imageName);
   req.width = Number(req.query.width);
@@ -68,10 +67,14 @@ resize.use(
             console.log('Image resized');
             next();
           } else {
-            res.send('<h3>Width and hieght must be positive integer numbers > 0</h3>');
+            res.send(
+              '<h3>Width and hieght must be positive integer numbers > 0</h3>'
+            );
           }
         } else {
-          res.send('<h3>Width and hieght must be positive integer numbers</h3>');
+          res.send(
+            '<h3>Width and hieght must be positive integer numbers</h3>'
+          );
         }
       } else {
         res.send("<h3>Invalid image name. Image isn't found</h3>");
