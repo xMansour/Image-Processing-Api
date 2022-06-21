@@ -8,7 +8,7 @@ routes.use('/resize', resize);
 routes.use('/listimages', listImages);
 routes.use(express.static(`${process.cwd()}/public/`));
 
-routes.get('/', (req, res) => {
+routes.get('/', (req: express.Request, res: express.Response) => {
   console.log('Log:: Main route');
   const indexFilePath = `${process.cwd()}/public/index.html`;
   res.sendFile(indexFilePath);
