@@ -32,12 +32,16 @@ const resizeImage = async (
       console.log('Error: ' + err);
     });
 };
-
+const validate = (req: express.Request, res: express.Response): void => {};
 resize.use((req: express.Request, res: express.Response, next): void => {
   req.name = String(req.query.imageName);
   req.width = Number(req.query.width);
   req.height = Number(req.query.height);
   req.ext = path.extname(String(req.query.imageName));
+  req.inputPath = path.join(
+    process.cwd(),
+    path.join('assets', 'full', req.name)
+  );
   req.outputPath = path.join(
     process.cwd(),
     path.join(
@@ -55,11 +59,24 @@ resize.use(
   async (req: express.Request, res: express.Response, next): Promise<void> => {
     if (fs.existsSync(req.outputPath)) {
       console.log('Image already resized and served from the cache');
+      next();
     } else {
-      await resizeImage(req.name, req.ext, req.width, req.height);
-      console.log('Image resized');
+      if (fs.existsSync(req.inputPath)) {
+        if (Number(req.width) !== NaN && Number(req.height) !== NaN) {
+          if (req.width > 0 && req.height > 0) {
+            await resizeImage(req.name, req.ext, req.width, req.height);
+            console.log('Image resized');
+            next();
+          } else {
+            res.send('<h3>Width and hieght must be positive integer numbers > 0</h3>');
+          }
+        } else {
+          res.send('<h3>Width and hieght must be positive integer numbers</h3>');
+        }
+      } else {
+        res.send("<h3>Invalid image name. Image isn't found</h3>");
+      }
     }
-    next();
   }
 );
 

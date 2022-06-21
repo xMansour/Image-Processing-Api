@@ -7,6 +7,7 @@ declare global {
       width: number,
       height: number,
       ext: string,
+      inputPath:string,
       outputPath:string,
     }
   }
